@@ -2,19 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@android:color/darker_gray" >
-        <ImageButton
-            android:id="@+id/ImBttnCreatePasta"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true" />
 
-        </RelativeLayout>
         <GridLayout
             android:id="@+id/GridPastas"
             android:layout_width="fill_parent"

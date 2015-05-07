@@ -1,24 +1,29 @@
 package com.dot.freaks.picplanner;
 
 import android.app.Activity;
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 
 import java.io.File;
 
 
-public class Pastas extends Activity {
+public class Pastas extends Activity{
 
+    private static final String LOG_TAG = "PicPlanner";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        private static final String LOG_TAG = "PicPlanner";
-
-
+        GridView PastasGrid = (GridView)findViewById(R.id.GridPastas);
         File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Organizador");
         try{
             if(dir.mkdir()) {
@@ -30,10 +35,8 @@ public class Pastas extends Activity {
             e.printStackTrace();
         }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pastas);
+        setContentView(R.layout.activity_inicial);
 
-        GridView gridFotos = (GridView)findViewById(R.id.GridFotos);
-        gridFotos.setAdapter(new ImageAdapter(this));
     }
 
 
@@ -50,12 +53,27 @@ public class Pastas extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        Intent i;
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
+        if(id == R.id.ImBttnCreatePasta){
+            showDialog();
+            return true;
+        }
+        if(id == R.id.teste){
+            DentroPasta teste = new DentroPasta(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Organizador/jk");
+            teste.startActivity(getParentActivityIntent());
+
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    void showDialog() {
+        DialogFragment newFragment = NomeadorPasta.newInstance();
+        newFragment.show(getFragmentManager(), "dialog");
     }
 }
