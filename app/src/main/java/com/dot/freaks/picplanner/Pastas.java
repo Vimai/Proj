@@ -54,6 +54,7 @@ public class Pastas extends Activity{
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         Intent i = new Intent("com.dot.freaks.picplanner.DentroPasta");
+        Bundle params = new Bundle();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
@@ -64,8 +65,12 @@ public class Pastas extends Activity{
             return true;
         }
         if(id == R.id.teste){
-           // DentroPasta teste = new DentroPasta(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Organizador/jk");
-           // teste.startActivity(getParentActivityIntent());
+            //DentroPasta teste = new DentroPasta(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Organizador/jk");
+            //teste.startActivity(getParentActivityIntent());
+            //acho q ta errado essas 2 linhas ai em cima
+            params.putString("caminho",Environment.getExternalStorageDirectory().getAbsolutePath().toString()+"/Organizador/jk");
+            i.putExtras(params);
+
             startActivity(i);
 
         }

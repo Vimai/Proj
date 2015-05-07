@@ -12,11 +12,11 @@ public class Camera extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-        if (null == savedInstanceState) {
+        /*if (null == savedInstanceState) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.container, camera2.newInstance())
                     .commit();
-        }
+        }*/
     }
 
 

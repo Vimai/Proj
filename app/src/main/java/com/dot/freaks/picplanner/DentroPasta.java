@@ -35,12 +35,24 @@ public class DentroPasta extends Activity{
     ArrayList<String> f = new ArrayList<String>();
     File[] listFile;
 
+    Bundle params;
+
 
     public DentroPasta(String caminho){
-         this.path = caminho;
+
+
+        this.path = caminho;
     }
 
     public DentroPasta(){
+
+        Intent inte = getIntent();
+        if (inte !=null){
+            Bundle params = inte.getExtras();
+            if (params !=null){
+                this.path = params.getString("caminho");
+            }
+        }
 
     }
 
@@ -51,6 +63,10 @@ public class DentroPasta extends Activity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pastas);
+
+
+
+
         /*Pegar();
         GridView gridFotos = (GridView)findViewById(R.id.GridFotos);
         imageAdapter = new ImageAdapter();
