@@ -12,8 +12,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -23,7 +25,25 @@ public class Pastas extends Activity{
     private static final String LOG_TAG = "PicPlanner";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_inicial);
+        int[] lista= new int[]{R.drawable.folder01,R.drawable.folder01,R.drawable.folder01,R.drawable.folder01};
         GridView PastasGrid = (GridView)findViewById(R.id.GridPastas);
+
+        PastasGrid.setAdapter(new Adaptador(this, lista));
+
+
+        PastasGrid.setOnItemClickListener(new GridView.OnItemClickListener() {
+
+
+            @Override
+            public void onItemClick(AdapterView parent, View view, int i, long l) {
+                Toast.makeText(getBaseContext(),"Pasta"+i+1,Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
+
         File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Organizador");
         try{
             if(dir.mkdir()) {
@@ -34,8 +54,7 @@ public class Pastas extends Activity{
         }catch(Exception e){
             e.printStackTrace();
         }
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicial);
+
 
     }
 

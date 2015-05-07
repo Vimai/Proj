@@ -51,7 +51,7 @@ public class CreateFolder {
 
 
     public void gerar(){
-        File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Organizador/"+nome);
+        File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath().toString()+"/Organizador/"+nome);
         try{
             if(dir.mkdir()) {
                 Log.i(LOG_TAG, "Directory created");
