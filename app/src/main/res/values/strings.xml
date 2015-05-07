@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">PhotoPlanner</string>
+    <string name="app_camera">Camera</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="NamePasta">Digite o nome da pasta</string>
     <string name="NewPasta">Nova pasta</string>
+    <string name="picture">Bater Foto</string>
+
+
+    <string name="intro_message">HUEHEUHEUHEU</string>
+    <string name="description_info">Info</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

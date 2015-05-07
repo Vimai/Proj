@@ -53,7 +53,7 @@ public class Pastas extends Activity{
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        Intent i;
+        Intent i = new Intent("com.dot.freaks.picplanner.DentroPasta");
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
@@ -64,8 +64,9 @@ public class Pastas extends Activity{
             return true;
         }
         if(id == R.id.teste){
-            DentroPasta teste = new DentroPasta(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Organizador/jk");
-            teste.startActivity(getParentActivityIntent());
+           // DentroPasta teste = new DentroPasta(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Organizador/jk");
+           // teste.startActivity(getParentActivityIntent());
+            startActivity(i);
 
         }
 

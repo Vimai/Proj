@@ -40,6 +40,9 @@ public class DentroPasta extends Activity{
          this.path = caminho;
     }
 
+    public DentroPasta(){
+
+    }
 
     private static final String LOG_TAG = "PicPlanner";
 
@@ -47,8 +50,8 @@ public class DentroPasta extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicial);
-        Pegar();
+        setContentView(R.layout.activity_pastas);
+        /*Pegar();
         GridView gridFotos = (GridView)findViewById(R.id.GridFotos);
         imageAdapter = new ImageAdapter();
         gridFotos.setAdapter(imageAdapter);
@@ -57,7 +60,7 @@ public class DentroPasta extends Activity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 /*Intent i = new Intent(getApplicationContext(), AumentarImagem.class);
                 i.putExtra("id", position);
-                startActivity(i);*/
+                startActivity(i);
                 setContentView(R.layout.activity_imagefull);
 
                 // get intent data
@@ -68,7 +71,7 @@ public class DentroPasta extends Activity{
                 ImageView imageView = (ImageView) findViewById(R.id.FullScreenImage);
                 imageView.setImageBitmap(thumbnails[position]);
             }
-        });
+        });*/
     }
 
 
@@ -92,6 +95,10 @@ public class DentroPasta extends Activity{
         }
         if(id == R.id.ImBttnCamera){
             Toast.makeText(this, "CAMERA", Toast.LENGTH_SHORT).show();
+
+            Intent intCamera = new Intent("com.dot.freaks.picplanner.Camera");
+            startActivity(intCamera);
+
             return true;
         }
 
